@@ -1,0 +1,19 @@
+# Setup
+title:        mocker-data-generator
+tagline:      A responsive theme for your project on GitHub Pages
+baseurl:      ""
+paginate:     1
+url:          https://github.com/danibram/mocker-data-generator
+
+# About/contact
+author:
+  name:       Daniel Biedma
+  url:        http://github.com/danibram
+  email:      info@dbr.io
+
+# Gems
+gems:
+  - jekyll-paginate
+
+#Others
+markdown: redcarpet
