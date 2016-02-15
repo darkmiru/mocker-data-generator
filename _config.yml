@@ -1,7 +1,7 @@
 # Setup
 title:        mocker-data-generator
 tagline:      A simplified way to generate masive mock data based on a schema, using the awesome fake/random data generators like (FakerJs, ChanceJs, CasualJs and RandExpJs), all in one tool to generate your fake data for testing
-baseurl:      "http://danibram.github.io/mocker-data-generator/"
+baseurl:      mocker-data-generator
 paginate:     1
 url:          https://github.com/danibram/mocker-data-generator
 
