@@ -2,7 +2,7 @@
 
 [![npm version](https://img.shields.io/npm/v/mocker-data-generator.svg?style=flat-square)][npm-home-module]
 
-[![Version](https://img.shields.io/travis/danibram/mocker-data-generator.svg?style=flat-square)][npm-home-module]
+[![Version](https://img.shields.io/travis/danibram/mocker-data-generator.svg?style=flat-square)][travis]
 [![Build status](https://ci.appveyor.com/api/projects/status/bp9uy3nq679r5w0a?svg=true)][appveyor]
 
 [![Dependency Status](https://img.shields.io/david/danibram/mocker-data-generator.svg?style=flat-square)][npm-home-module][![DevDependency Status](https://img.shields.io/david/dev/danibram/mocker-data-generator.svg?style=flat-square)][npm-home-module]
@@ -105,21 +105,42 @@ Data generation goes with model based composed by generators, the generators can
             { db: 'user[0].id' } //will get the first user id
         ```
 
-- ***related***: You can pass 2 paramters:
-    - ***related***: the name of the related entity, get one random.
-    - ***get***: Optional string that will be evaluated over the random related entity.
+- ***hasOne***: You can pass 2 paramters:
+    - ***hasOne***: the name of the related entity, get one random.
+    - ***get*** (Optional): String that will be evaluated over the random related entity.
 
 
     ```javascript
         {
-            related: 'user' //this populate the field with one random user
+            hasOne: 'user' //this populate the field with one random user
         }
 
         //OR:
 
         {
-            related: 'user',
+            hasOne: 'user',
             get: 'id' //this populate the field with one id of a random user
+        }    
+    ```
+- ***hasMany***: You can pass 4 paramters:
+    - ***hasMany***: the name of the related entity, get one random.
+    - ***amount*** (Optional): Fixed number of related entities to get.
+    - ***min*** (Optional): Minimun entities to get.
+    - ***max*** (Optional): Maximun entities to get.
+
+
+    ```javascript
+        {
+            hasMany: 'user' //this populate the field with one random user
+        }
+
+        //OR:
+
+        {
+            hasMany: 'user',
+            amount: 1, //optional
+            min: 1, //optional
+            max: 1 //optional
         }    
     ```
 
@@ -187,9 +208,9 @@ Data generation goes with model based composed by generators, the generators can
 
 - ***[Array]***: you can pass an array that indicates an array of data you can create, passing in the first field the generator (function, faker, or array(not Tested)), and in the second field pass a config object (length, fixedLentgh)
    - ***length***: to know how many values
-   - ***fixedLength***: true to create always same amount of values in the array, false to generate a random number bettwen 0 and 'length' value. False by default.
-   - ***concat***: An stringuified array ex: '[object.id, db.users.id]'. This should be an evaluable string to concat with the array that are generating. Also takes in mind that if you have a fixedLength, should not increase the lenght.
-   - ***strictConcat***: true to remove duplicates in the concated string array, when it is calculated. False by default.
+   - ***fixedLength*** (Optional): true to create always same amount of values in the array, false to generate a random number bettwen 0 and 'length' value. False by default.
+   - ***concat*** (Optional): An stringuified array ex: '[object.id, db.users.id]'. This should be an evaluable string to concat with the array that are generating. Also takes in mind that if you have a fixedLength, should not increase the lenght.
+   - ***strictConcat*** (Optional): true to remove duplicates in the concated string array, when it is calculated. False by default.
 
     ```javascript
     [{
@@ -304,3 +325,4 @@ Licensed under the MIT license. 2015
 
 [npm-home-module]: https://www.npmjs.com/package/mocker-data-generator
 [appveyor]: https://ci.appveyor.com/project/danibram/mocker-data-generator
+[travis]: https://travis-ci.org/danibram/mocker-data-generator
