@@ -1,13 +1,13 @@
 [![NPM](https://nodei.co/npm/mocker-data-generator.png?downloads=true&stars=true)][npm-home-module]
 
-[![npm version](https://img.shields.io/npm/v/mocker-data-generator.svg?style=flat-square)][npm-home-module]
+[![npm version](https://img.shields.io/npm/v/mocker-data-generator.svg?style=flat-square)][npm-home-module][![GitHub license](https://img.shields.io/npm/dt/mocker-data-generator.svg?style=flat-square)][npm-home-module]
 
-[![Version](https://img.shields.io/travis/danibram/mocker-data-generator.svg?style=flat-square)][travis]
-[![Build status](https://ci.appveyor.com/api/projects/status/bp9uy3nq679r5w0a?svg=true)][appveyor]
+
+[![Linux Build status][travis-badge]][travis-link][![Windows Build status][appveyor-badge]][appveyor-link][![Codecov coverage][codecov-badge]][codecov-link][![Codecov coverage][coveralls-badge]][coveralls-link]
 
 [![Dependency Status](https://img.shields.io/david/danibram/mocker-data-generator.svg?style=flat-square)][npm-home-module][![DevDependency Status](https://img.shields.io/david/dev/danibram/mocker-data-generator.svg?style=flat-square)][npm-home-module]
 
-[![GitHub license](https://img.shields.io/github/license/danibram/mocker-data-generator.svg?style=flat-square)][npm-home-module][![GitHub license](https://img.shields.io/npm/dt/mocker-data-generator.svg?style=flat-square)][npm-home-module][![GitHub license](https://img.shields.io/badge/awesome-true-orange.svg?style=flat-square)][npm-home-module]
+[![GitHub license](https://img.shields.io/github/license/danibram/mocker-data-generator.svg?style=flat-square)][npm-home-module][![Awesome license](https://img.shields.io/badge/bateries-included-orange.svg?style=flat-square)][npm-home-module]
 
 
 A simplified way to generate masive mock data based on a schema, using the awesome fake/random data generators like (FakerJs, ChanceJs, CasualJs and RandExpJs), all in one tool to generate your fake data for testing.
@@ -101,9 +101,9 @@ Data generation goes with model based composed by generators, the generators can
 
 - ***db***: get the db, and evaluate the string, so you can access to this entities.
 
-        ```javascript
-            { db: 'user[0].id' } //will get the first user id
-        ```
+    ```javascript
+        { db: 'user[0].id' } //will get the first user id
+    ```
 
 - ***hasOne***: You can pass 2 paramters:
     - ***hasOne***: the name of the related entity, get one random.
@@ -322,15 +322,25 @@ json-schema-faker is awesome and works really nice, but i need a simplified and 
 ## Credits
 I couldn't do this without this awesome libraries, so thanks to all:
 
-- Faker:  https://github.com/Marak/faker.js
-- Chance:  https://github.com/victorquinn/chancejs
-- Casual:  https://github.com/boo1ean/casual
-- RandExpJs: https://github.com/fent/randexp.js
+- Faker:  [https://github.com/Marak/faker.js]
+- Chance:  [https://github.com/victorquinn/chancejs]
+- Casual:  [https://github.com/boo1ean/casual]
+- RandExpJs: [https://github.com/fent/randexp.js]
 
 ## License
 Licensed under the MIT license. 2015
 
+[https://github.com/Marak/faker.js]: https://github.com/Marak/faker.js
+[https://github.com/victorquinn/chancejs]: https://github.com/victorquinn/chancejs
+[https://github.com/boo1ean/casual]: https://github.com/boo1ean/casual
+[https://github.com/fent/randexp.js]: https://github.com/fent/randexp.js
 
+[coveralls-link]: https://coveralls.io/github/danibram/mocker-data-generator
+[coveralls-badge]: https://img.shields.io/coveralls/danibram/mocker-data-generator.svg?style=flat-square&label=coveralls%20coverage
+[codecov-badge]: https://img.shields.io/codecov/c/github/danibram/mocker-data-generator.svg?style=flat-square&label=codecov%20coverage
+[codecov-link]: https://codecov.io/github/danibram/mocker-data-generator
 [npm-home-module]: https://www.npmjs.com/package/mocker-data-generator
-[appveyor]: https://ci.appveyor.com/project/danibram/mocker-data-generator
-[travis]: https://travis-ci.org/danibram/mocker-data-generator
+[appveyor-badge]: https://img.shields.io/appveyor/ci/danibram/mocker-data-generator.svg?style=flat-square&label=windows
+[appveyor-link]: https://ci.appveyor.com/project/danibram/mocker-data-generator
+[travis-link]: https://travis-ci.org/danibram/mocker-data-generator
+[travis-badge]: https://img.shields.io/travis/danibram/mocker-data-generator.svg?style=flat-square&label=linux
