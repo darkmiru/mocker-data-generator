@@ -5,6 +5,9 @@ permalink: /changelog
 
 # Release History
 
+## (1.2.1)
+- Start to parse better the errors
+
 ## (1.2.0)
 - New internal reorganization
 - Added hasOne (related is deprecated) and hasMany
@@ -13,7 +16,7 @@ permalink: /changelog
 ## (1.1.1)
 - Added RandExpJs generator
 - Improve test system (I know im improving it! =P)
-
+- ***Breaking Change***: the older versions aren´t compatible with this module, the way to generate the data are changed:
 ## (1.1.0)
 - Added casualJs
 - Added self option
