@@ -223,7 +223,9 @@ a {
       font-size: 0.9rem; } }
 
 .site-footer-owner {
-  display: block;
+  display: block; }
+
+.site-footer-owner a{
   font-weight: bold; }
 
 .site-footer-credits {
