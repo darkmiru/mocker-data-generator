@@ -124,42 +124,76 @@ export class Schema extends Generator {
             })
 
         } else if (isObject(this.options)) {
-            let f = this.options.uniqueField
-            let entityConfig = this.schema
-            let possibleValues
-            if (f === '.') {
-                possibleValues = this.schema.values
-            } else {
-                if (this.schema[f]) {
-                    if (isArray(this.schema[f].values)) {
-                        possibleValues = this.schema[f].values
-                    } else {
-                        possibleValues = this.schema[f]
-                    }
+            if (this.options.uniqueField) {
+                let f = this.options.uniqueField
+                let entityConfig = this.schema
+                let possibleValues
+                if (f === '.') {
+                    possibleValues = this.schema.values
                 } else {
-                    console.error('The field ' + f + ', on the scheema ' + this.name + ' not exists.')
+                    if (this.schema[f]) {
+                        if (isArray(this.schema[f].values)) {
+                            possibleValues = this.schema[f].values
+                        } else {
+                            possibleValues = this.schema[f]
+                        }
+                    } else {
+                        console.error('The field ' + f + ', on the schema ' + this.name + ' not exists.')
+                        return this.DB[this.name]
+                    }
+
+                }
+
+                if ( !isArray(possibleValues) ) {
+                    console.error('The field ' + f + ', on the schema ' + this.name + ' is not an array.')
                     return this.DB[this.name]
                 }
 
+                possibleValues.map((value) => {
+
+                    if (f === '.') {
+                        return
+                    }
+
+                    entityConfig[f] = {static: value}
+
+                    this.buildSingle(entityConfig)
+                    this.DB[this.name].push(this.object)
+                    this.object = {}
+                })
             }
+            if (this.options.length) {
 
-            if ( !isArray(possibleValues) ) {
-                console.error('The field ' + f + ', on the scheema ' + this.name + ' is not an array.')
-                return this.DB[this.name]
+                let length = this.options.length
+                Array.from(new Array(this.options.length)).map(() => {
+                    this.buildSingle(this.schema)
+                    this.DB[this.name].push(this.object)
+                    this.object = {}
+                })
+                
             }
+            if (this.options.max || this.options.min) {
 
-            possibleValues.map((value) => {
-
-                if (f === '.') {
-                    return
+                let max = 10
+                let min = 0
+                let length
+                
+                if (this.options.max) {
+                    max = this.options.max
                 }
-
-                entityConfig[f] = {static: value}
-
-                this.buildSingle(entityConfig)
-                this.DB[this.name].push(this.object)
-                this.object = {}
-            })
+                if (this.options.min) {
+                    min = this.options.min
+                }
+                
+                length = Math.floor(Math.random()*(max-min+1)+min)
+                
+                Array.from(new Array(length)).map(() => {
+                    this.buildSingle(this.schema)
+                    this.DB[this.name].push(this.object)
+                    this.object = {}
+                })
+                
+            }
         } else {
             console.error('An string ' + this.options + ', is not recognized as a parameter.')
         }

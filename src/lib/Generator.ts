@@ -13,7 +13,10 @@ export class Generator {
         values: string[]
     }
     options: {
-        uniqueField: string
+        uniqueField: string,
+        length: number,
+        max: number,
+        min: number
     }
     virtualPaths: string[]
 

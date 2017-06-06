@@ -27,7 +27,7 @@ var cat2 = {
 
 var start = moment()
 var m = mocker()
-    .schema('cat', cat2, 1)
+    .schema('cat', cat2, { max: 5, min: 3})
     .build(function(data) {
         console.log('Time: ' + moment().diff(start, 'ms') + ' ms')
         console.log(util.inspect(data, {depth:10}))
